@@ -1,0 +1,28 @@
+{
+  "name": "expo-zustand-persist",
+  "version": "1.0.2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["zustand", "persist", "expo", "react-native", "state-management"],
+  "author": "Pedro Augusto Freitas de Souza",
+  "license": "MIT",
+  "description": "A package that makes Zustand persist work with React Native/Expo.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pedroafsouza/expo-zustand-persist.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pedroafsouza/expo-zustand-persist/issues"
+  },
+  "homepage": "https://github.com/pedroafsouza/expo-zustand-persist#readme",
+  "dependencies": {
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.1",
+    "tslib": "^2.8.0",
+    "typescript": "^5.6.3"
+  }
+}
