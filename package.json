@@ -1,11 +1,19 @@
 {
   "name": "expo-zustand-persist",
-  "version": "1.0.3",
-  "main": "index.js",
+  "version": "1.0.4",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
-  "keywords": ["zustand", "persist", "expo", "react-native", "state-management"],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "zustand",
+    "persist",
+    "expo",
+    "react-native",
+    "state-management"
+  ],
   "author": "Pedro Augusto Freitas de Souza",
   "license": "MIT",
   "description": "A package that makes Zustand persist work with React Native/Expo.",
