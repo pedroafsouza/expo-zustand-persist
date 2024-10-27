@@ -1,6 +1,6 @@
 
 
-# zustand-expo-persist 
+# expo-zustand-persist 
 A lightweight middleware to enable persistence for [zustand](https://github.com/pmndrs/zustand)  state management in React Native and Expo applications. This package is inspired by [zustand/middleware](https://github.com/pmndrs/zustand)  and makes it easy to persist your app's state in local storage or similar storage mechanisms compatible with React Native and Expo.
 ## Features 
 
@@ -15,18 +15,18 @@ A lightweight middleware to enable persistence for [zustand](https://github.com/
 Install the package with npm:
 
 ```bash
-npm install zustand-expo-persist zustand
+npm install expo-zustand-persist zustand
 ```
  
 
 ## Getting Started 
-To enable persistence with `zustand-expo-persist`, simply wrap your Zustand store with the middleware.
+To enable persistence with `expo-zustand-persist`, simply wrap your Zustand store with the middleware.
 ### Example Usage 
-Here’s a basic setup of how to use `zustand-expo-persist` to persist your store:
+Here’s a basic setup of how to use `expo-zustand-persist` to persist your store:
 
 ```javascript
 import { create } from 'zustand';
-import { persist } from 'zustand-expo-persist';
+import { persist } from 'expo-zustand-persist';
 import AsynStorage from '@react-native-async-storage/async-storage';
 
 // Define your store as usual
