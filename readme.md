@@ -24,7 +24,7 @@ To enable persistence with `expo-zustand-persist`, simply wrap your Zustand stor
 ### Example Usage 
 Here’s a basic setup of how to use `expo-zustand-persist` to persist your store:
 
-```javascript
+```typescript
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'expo-zustand-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
