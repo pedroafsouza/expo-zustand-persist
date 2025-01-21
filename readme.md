@@ -45,7 +45,7 @@ const useStore = create<Store>(
     }),
     {
       name: 'my-app-storage', // unique name for storage key
-            storage: createJSONStorage(() => AsyncStorage), // Using WmaStorage as the storage engine
+      storage: createJSONStorage(() => AsyncStorage), // Using WmaStorage as the storage engine
     }
   )
 );
