@@ -26,11 +26,17 @@ Here’s a basic setup of how to use `expo-zustand-persist` to persist your stor
 
 ```javascript
 import { create } from 'zustand';
-import { persist } from 'expo-zustand-persist';
-import AsynStorage from '@react-native-async-storage/async-storage';
+import { createJSONStorage, persist } from 'expo-zustand-persist';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+type Store = {
+  counter: number;
+  increase: () => void;
+  reset: () => void;
+};
 
 // Define your store as usual
-const useStore = create(
+const useStore = create<Store>(
   persist(
     (set) => ({
       counter: 0,
@@ -39,7 +45,7 @@ const useStore = create(
     }),
     {
       name: 'my-app-storage', // unique name for storage key
-            storage: createJSONStorage(() => AsynStorage), // Using WmaStorage as the storage engine
+            storage: createJSONStorage(() => AsyncStorage), // Using WmaStorage as the storage engine
     }
   )
 );
