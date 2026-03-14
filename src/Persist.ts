@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // Basic Imports for Types
-import { StateCreator, StoreApi } from 'zustand';
+import { StateCreator, StoreApi, StoreMutatorIdentifier } from 'zustand';
 // Define the StateStorage interface
 export interface StateStorage {
   getItem: (name: string) => string | null | Promise<string | null>;
@@ -122,13 +122,13 @@ const toThenable =
   };
 
 // persistImpl function to handle persistent state storage
-type PersistImpl = <T>(
-  storeInitializer: StateCreator<T, [], []>,
+type PersistImpl = <T, Mps extends [StoreMutatorIdentifier, unknown][] = [], Mcs extends [StoreMutatorIdentifier, unknown][] = []>(
+  storeInitializer: StateCreator<T, Mps, Mcs>,
   options: PersistOptions<T, T>,
-) => StateCreator<T, [], []>;
+) => StateCreator<T, Mps, Mcs>;
 
-const persistImpl: PersistImpl = (config, baseOptions) => (set, get, api) => {
-  type S = ReturnType<typeof config>;
+const persistImpl = ((config: StateCreator<Record<string, unknown>, [], []>, baseOptions: PersistOptions<Record<string, unknown>, Record<string, unknown>>) => (set: StoreApi<Record<string, unknown>>['setState'], get: StoreApi<Record<string, unknown>>['getState'], api: StoreApi<Record<string, unknown>>) => {
+  type S = Record<string, unknown>;
   let options = {
     storage: createJSONStorage<S>(() => localStorage),
     partialize: (state: S) => state,
@@ -282,6 +282,6 @@ const persistImpl: PersistImpl = (config, baseOptions) => (set, get, api) => {
   }
 
   return stateFromStorage || configResult;
-};
+}) as PersistImpl;
 
-export const persist = persistImpl as unknown as PersistImpl;
+export const persist = persistImpl as PersistImpl;
